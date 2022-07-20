@@ -1,0 +1,798 @@
+%	-------------------------------------------------------------------------------
+% 
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom		=10em}
+		\geometry{left		=8em}
+		\geometry{right		=8em}
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}						% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+
+			\usepackage{scrextend}					% 
+		
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tablists}			%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+
+			\usepackage{setspace}			%
+			\usepackage{booktabs}			% table
+			\usepackage{color}				%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}		% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}	% pdf 사용
+			\usepackage{framed}			% pdf 사용
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			%\usetikzlibrary{positioning}
+			
+
+		% --------------------------------- 	page
+			\usepackage{afterpage}			% 다음페이지가 나온면 어떻게 하라는 명령 정의 패키지
+%			\usepackage{fullpage}			% 잘못 사용하면 다 흐트러짐 주의해서 사용
+%			\usepackage{pdflscape}			% 
+			\usepackage{lscape}			%	 
+
+
+			\usepackage{blindtext}
+	
+		% --------------------------------- font 사용
+			\usepackage{pifont}				%
+			\usepackage{textcomp}
+			\usepackage{gensymb}
+			\usepackage{marvosym}
+
+
+
+
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar		{\Huge\bf}
+			\ChTitleVar	{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]	{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+		% --------------------------------- 	section 스타일 지정
+	
+		\usepackage{titlesec}
+		
+		\titleformat*{\section}			{\large\bfseries}
+		\titleformat*{\subsection}			{\normalsize\bfseries}
+		\titleformat*{\subsubsection}		{\normalsize\bfseries}
+		\titleformat*{\paragraph}			{\normalsize\bfseries}
+		\titleformat*{\subparagraph}		{\normalsize\bfseries}
+	
+		\renewcommand{\thesection}			{\arabic{section}.}
+		\renewcommand{\thesubsection}		{\thesection\arabic{subsection}.}
+		\renewcommand{\thesubsubsection}	{\thesubsection\arabic{subsubsection}}
+		
+		\titlespacing*{\section} 			{0pt}{1.0em}{1.0em}
+		\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\paragraph}			{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subparagraph}		{0ex}{1.0em}{1.0em}
+	
+	%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}		{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}	{\newpage  \null \vskip 2cm}
+
+
+	
+		% --------------------------------- 장의 목차
+		\usepackage{minitoc}
+		\setcounter{minitocdepth}{1}    	% Show until subsubsections in minitoc
+		\setlength{\mtcindent}{12pt} 		% default 24pt
+	
+	
+		% --------------------------------- 	문서 기본 사항 설정
+		\setcounter{secnumdepth}{3} 		% 문단 번호 깊이
+		\setcounter{tocdepth}{3} 			% 문단 번호 깊이
+		\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+		
+		
+		% --------------------------------- 	줄간격 설정
+		\doublespace
+%		\onehalfspace
+%		\singlespace
+		
+		
+% 	============================================================================== List global setting
+%		\setlist{itemsep=1.0em}
+	
+% 	============================================================================== enumi setting
+
+%		\renewcommand{\labelenumi}{\arabic{enumi}.} 
+%		\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+%		\renewcommand{\labelenumii}{(\arabic{enumii})}
+%		\renewcommand{\labelenumiii}{\arabic{enumiii})}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[enumerate,1]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,2]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,3]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate]	{ 	itemsep=1.0em, 
+								leftmargin=6.0ex, 
+								rightmargin=0.0em, 
+								labelwidth=0.0em, 
+								labelsep=4.0ex 
+							}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+%		\setlist[enumerate,1]{ label=\arabic*., ref=\arabic* }
+%		\setlist[enumerate,1]{ label=\emph{\arabic*.}, ref=\emph{\arabic*} }
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*} }   	% 1.
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,1]{ label=\textbf{(\arabic*)}, ref=\textbf{(\arabic*)} }	% (1)
+		\setlist[enumerate,2]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,3]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*.} }		% 1.
+
+%		\setlist[enumerate,2]{ label=\emph{\alph*}),ref=\theenumi.\emph{\alph*} }
+%		\setlist[enumerate,3]{ label=\roman*), ref=\theenumii.\roman* }
+
+
+% 	============================================================================== itemi setting
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[itemize]{itemsep=0.0em}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+		\renewcommand{\labelitemi}{$\bullet$}
+		\renewcommand{\labelitemii}{$\cdot$}
+		\renewcommand{\labelitemiii}{$\diamond$}
+		\renewcommand{\labelitemiv}{$\ast$}		
+
+
+
+
+		% --------------------------------- recommend  글자 색깔지정 명령
+		\newcommand{\red}		{\color{red}}			% 글자 색깔 지정
+		\newcommand{\blue}		{\color{blue}}		% 글자 색깔 지정
+		\newcommand{\black}	{\color{black}}		% 글자 색깔 지정
+		\newcommand{\superscript}[1]{${}^{#1}$}
+
+	
+	
+		% --------------------------------- 환경 정의 : 박스 치고 안의 글자 빨간색
+
+			\newenvironment{BoxRedText}
+			{ 	\setlength{\fboxsep}{12pt}
+				\begin{boxedminipage}[c]{1.0\linewidth}
+				\color{red}
+			}
+			{ 	\end{boxedminipage} 
+				\color{black}
+			}
+			
+			
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			
+
+			\title{변형작용과 지질구조}
+			\author{김대희}
+			\date{2017년 2월}
+			\maketitle
+
+
+			\tableofcontents
+%			\listoffigures
+%			\listoftables
+
+			
+
+
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{변형 작용}
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{변형작용}
+
+
+
+	
+
+			\begin{itemize}[	topsep=0.0em, itemsep=0.0em, leftmargin=4em, labelsep=3em ] 
+			\item	지각을 구성하고 있는 암반이 응력(stress)을 받으면 변형작용이 발생한다.
+			\item	이 변형작용이 일어나는 곳의 \textbf{조건(온도 및 압력)}에 따라 	변형 양상이 다르게 나타난다.
+			\item	온도 및 압력이 높은 지하 심부에서는 \textbf{연성변형작용}이 일어나 \textbf{연성전단대}나 \textbf{습곡}과 같은 지질구조가 생길 것이다. 
+			\item	반면 온도가 낮은 지각의 천부에서는 암반이 깨어지는 \textbf{취성변형작용}이 일어나 
+					\textbf{절리}나 \textbf{단층}과 같은 지질구조가 형성된다.
+			\end{itemize}	
+
+
+
+		\paragraph{지 구조 운동}
+
+
+
+
+		\paragraph{심부의 연성변형}
+
+
+
+
+		\paragraph{천부의 취성변형}
+
+
+
+
+
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{연성전단대}
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{연성전단대}
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{순창전단대, 호남전단대}
+
+
+
+
+
+
+
+
+
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{습곡}
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{습곡}
+	
+		층리를 가지는 퇴적암이나 엽리를 가지는 변성암들이 횡압력을 받아 물결모양으로 굴곡된 형태를 가지는 지질구조를 `습곡'이라 한다.
+	
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{습곡의 각 부분 명칭}
+
+
+	\subsection{배사}
+
+	\subsection{향사}
+	
+	\subsection{힌지}
+
+
+	\subsection{습곡축}
+	
+	\subsection{습곡의 날개}
+	
+	\subsection{습곡 축면}
+	
+
+
+
+	\subsection{배사구조}
+	\subsection{향사구조}
+	\subsection{단사구조}
+	
+	
+	
+
+
+
+	
+	\subsection{횡와습곡}
+	\subsection{경사습곡}
+	
+	\subsection{완사습곡}
+	\subsection{급사습곡}
+	\subsection{등사습곡}
+	
+	
+	
+
+
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{습곡의 종류}
+
+
+
+	\subsection{성인에 의한 분류}
+
+	\subsection{모양에 의한 분류}
+
+
+	
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{절리}
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{절리}
+
+	\subsection{단열 fracture}
+
+
+	\paragraph{절리}
+	절리는 암석의 갈라진 틈으로서 절리면을 중심으로 양쪽 암체의 상대적 변위가 없는 것을 말한다.
+	
+	\paragraph{전단 절리}
+	
+	\paragraph{인장 절리}
+	
+
+
+	\paragraph{깃털 구조}
+	
+	
+	\paragraph{판상 절리}
+
+
+	
+	\paragraph{주상 절리}
+	
+	
+
+
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{절리의 종류 및 분류}
+	
+	\subsection{기하학적 분류}
+	
+	\subsection{형태적 분류}
+	
+	\subsection{성인별 분류}
+	
+	
+	
+	
+	
+	
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{단층}
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{단층}
+
+		\paragraph{단층}
+		지각 내에 작용한 응력에 의해ㅔ 취성변형작용이  일어나면 단열대가 형성된다.
+		이 단열대를 중심으로 변위가 발생하여 양 블록에 상대적으로 이동한 것이 단층이다.
+	
+		\paragraph{단층 활면}
+	
+	
+		\paragraph{단층 조선}
+	
+	
+		\paragraph{단층 점토}
+		단층이 미끄러질 때에 암석이 갈려 점토화 된것
+			
+	
+		\paragraph{단층 각력}
+		각력으로 간극에 남아 있는 것을 단층각력
+		
+		\paragraph{압쇄암}
+		
+	
+		\paragraph{단층대}
+
+		\paragraph{단층 파쇄대}
+
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{단층의 종류}
+
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{정단층}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{역단층}
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{주향이동 단층}
+	
+		\paragraph{주향이동 단층}
+		
+
+		\paragraph{우수향 주향이동 단층}
+
+
+		\paragraph{좌수향 주향이동 단층}
+
+
+
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{사교단층}
+	
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{회전단층}
+	
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{스러스트 단층}
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{단층의 구분 방법}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{단층조사법과 건설공사}
+	
+	
+	
+	
+		\paragraph{건설공사에서의 단층파쇄대의 문제점}
+	
+	
+		\paragraph{터널공사에서의 단층파쇄대의 문제점}
+	
+		\paragraph{경사면에서의 단층파쇄대의 문제점}
+	
+		\paragraph{댐공사에서의 단층파쇄대의 문제점}
+	
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{활성단층의 정의}
+	
+		\paragraph{활성단층의 정의}
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{단층의 등급분류}
+	
+	
+
+
+
+	
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{부정합}
+	
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{부정합}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{부정합의 종류}
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{평행부정합과 비정합}
+
+
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{난정합}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{경사부정합과 사교부정합}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{부정합의 인지}
+	
+	
+	
+		\paragraph{노두 관찰}
+		
+		
+		\paragraph{지질도 작성}
+		
+		
+		\paragraph{변성정도와 습곡정도의 차이}
+		
+
+
+		\paragraph{고생물학적 조사}
+		
+		
+	
+	
+	
+	
+
+
+
+
+	
+	
+	
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{불연속면}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{불연속면}
+	
+	
+	
+		\paragraph{절리}
+		
+		\paragraph{층리면}
+		
+		\paragraph{단층}
+	
+
+		\paragraph{파쇄대}
+		
+		\paragraph{벽개}
+		
+		\paragraph{편리}
+		
+		\paragraph{단열}
+		
+	
+
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{불연속면의 성질 중 중요한 요소}
+
+		\paragraph{불연속면의 방향성}
+		
+		\paragraph{간격}
+		\paragraph{연속성}
+		\paragraph{거칠기}
+		\paragraph{벽면강도}
+		
+		\paragraph{간극}
+		
+		\paragraph{충전물}
+		
+		\paragraph{누수}
+		
+		\paragraph{불연속면의 수}
+		
+		\paragraph{암괴의 크기}
+		
+		
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{방향성}
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{간격}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{연속성}
+	
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{거칠기}
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{벽면강도}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{간극}
+	
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{충전물}
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{누수}
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{불연속면군의 수}
+	
+	
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{암괴의 크기 및 모양}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\clearpage
+% ================================================= chapter 	====================
+	\chapter{취성파괴이론}
+
+
+
+	
+	\clearpage
+	% ------------------------------------------ section ------------ 
+	\section{취성파괴이론}
+	
+
+	
+	
+	
+	
+	
+
+
+
+	
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
